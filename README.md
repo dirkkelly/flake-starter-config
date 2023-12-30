@@ -1,13 +1,16 @@
 # ultimate guide video repo
 
+Sourced from the video https://www.youtube.com/watch?v=a67Sv4Mbxmc
+
 ## search for packages
 
 https://search.nixos.org/packages
 
 ## initializing flake
+
 ```bash
 $ cd /etc/nixos
-$ sudo nix flake init --template github:vimjoyer/flake-starter-config
+$ sudo nix flake init --template github:dirkkelly/flake-starter-config
 ```
 
 ## rebuilding with flakes enabled
@@ -17,18 +20,20 @@ $ sudo nixos-rebuild switch --flake /etc/nixos/#default
 ```
 
 ## generating home.nix
+
 ```bash
 $ nix run home-manager/master -- init && \\
   sudo cp ~/.config/home-manager/home.nix /etc/nixos/
 ```
 
 ## home-manager option
+
 ```nix
 home-manager = {
   # also pass inputs to home-manager modules
   extraSpecialArgs = {inherit inputs;};
   users = {
-    "username" = import ./home.nix;
+    "dirkkelly" = import ./home.nix;
   };
 }
 ```
@@ -48,7 +53,7 @@ in
     userName = lib.mkOption {
       default = "mainuser";
       description = ''
-        username
+        dirkkelly
       '';
     };
   };
