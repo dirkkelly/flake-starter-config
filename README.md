@@ -9,20 +9,20 @@ https://search.nixos.org/packages
 ## initializing flake
 
 ```bash
-$ cd /etc/nixos
-$ sudo nix flake init --template github:dirkkelly/flake-starter-config
+cd /etc/nixos
+sudo nix flake init --template github:dirkkelly/flake-starter-config
 ```
 
 ## rebuilding with flakes enabled
 
 ```bash
-$ sudo nixos-rebuild switch --flake /etc/nixos/#default
+sudo nixos-rebuild switch --flake /etc/nixos/#default
 ```
 
 ## generating home.nix
 
 ```bash
-$ nix run home-manager/master -- init && sudo cp ~/.config/home-manager/home.nix /etc/nixos/
+nix run home-manager/master -- init && sudo cp ~/.config/home-manager/home.nix /etc/nixos/
 ```
 
 ## home-manager option
